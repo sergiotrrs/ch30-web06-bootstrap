@@ -11,3 +11,8 @@ function changeColor( elementHtml, color ) {
     
     elementHtml.style.color = color;
 }
+
+function changeColorWithPromt( elementHtml) {
+    const color = prompt("Dime el color en inglés", "yellow");
+    changeColor( elementHtml, color );
+}
