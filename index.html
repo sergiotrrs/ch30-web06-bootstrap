@@ -6,34 +6,26 @@
     <!-- bootstrap style -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Página en construcción</title>
-    <script>
-        console.log("Página en construcción");
-        const date = new Date();
-        console.log(date);
-    </script>
 </head>
 <body>
     <main class="container-fluid text-center bg-black text-light">
         <div class="row align-items-center justify-content-center" style="height: 100vh;">
             <div class="col-10 col-md-6 col-lg-8">
-                <img class="img-fluid rounded" src="./assets/img/patricio-contruyendo.png" alt="Patricio estrella construyendo">
+                <img 
+                onclick="clickPatricio()"
+                class="img-fluid rounded" 
+                src="./assets/img/patricio-contruyendo.png" 
+                alt="Patricio estrella construyendo"
+                >
             </div>
             <div class="col-10 col-md-6 col-lg-4 ">
                 <h2>Página en contrucción</h2>
                 <p>Estamos trabajando en la página, pronto estará lista</p>
             </div>
         </div>
-    </main>
-    <script>
-        console.log("Me encuentro en el body");
-        const date2 = new Date();
-        console.info(date2);
-        console.error("Ay, algo salió mal");
-        console.warn("Hoy tenwmos que salir a las 5:15p.m.");
-        
-    </script>
+    </main>    
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
