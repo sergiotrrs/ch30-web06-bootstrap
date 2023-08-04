@@ -26,21 +26,21 @@
     <footer class="container-fluid text-center my-3" style="height: 20vh;">
         <div class="row align-items-center justify-content-center">
             <div class="col-6 col-md-3">
-                <h3 onclick="changeColor(this, 'green')">Cambia mi color a verde</h3>
+                <h3 id="green-color" onclick="changeColor(this, 'green')">Cambia mi color a verde</h3>
             </div>
             <div class="col-6 col-md-3">
-                <h3 onclick="changeColor(this, 'red')">Cambia mi color a rojo</h3>
+                <h3 id="red-color" onclick="changeColor(this, 'red')">Cambia mi color a rojo</h3>
             </div>
             <div class="col-6 col-md-3">
-                <h3 onclick="changeColor(this, 'purple')">Cambia mi color a morado</h3>
+                <h3 id="purple-color" onclick="changeColor(this, 'purple')">Cambia mi color a morado</h3>
             </div>
             <div class="col-6 col-md-3">
-                <h3 onclick="changeColorWithPromt(this)">Cambia mi color al que tú desees</h3>
+                <h3 id="user-color" onclick="changeColorWithPrompt(this)">Cambia mi color al que tú desees</h3>
             </div>
         </div>
         <div class="row align-items-center justify-content-center">
             <div class="col-5">
-                <button type="button" class="btn btn-dark">Reiniciar colores</button>
+                <button onclick="resetColor()" type="button" class="btn btn-dark">Reiniciar colores</button>
             </div>
         </div>
     </footer>
