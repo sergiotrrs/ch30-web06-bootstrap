@@ -14,8 +14,12 @@ function changeColor( elementHtml, color ) {
 
 function changeColorWithPrompt( elementHtml) {
     const color = prompt("Dime el color en inglés", "yellow");
-    elementHtml.innerHTML = "<h3>Ahora soy <em>" + color + "</em> </h3>";
+    changeTextOfUserColor( elementHtml, color);
     changeColor( elementHtml, color );
+}
+
+function changeTextOfUserColor( element, color ) {
+    element.innerHTML = "<h3>Ahora soy <em>" + color + "</em> </h3>";
 }
 
 function resetColor(){
@@ -29,5 +33,5 @@ function resetColor(){
     changeColor(refGreenColor, 'black');
     changeColor(refPurpleColor, 'black');
     changeColor(refUserColor, 'black');
-
+    changeTextOfUserColor( refUserColor, 'black');
 }
