@@ -73,3 +73,74 @@ sintaxis:
 } )( "ChatGPT" );
 
 
+/*
+ ------------ Funciones flecha -----------------------
+             (arrow functions)
+Funciones similares a las funciones expresadas pero:
+ - No requiere la palabra reservada function
+ - Si tiene una solo instrucción no requiere las llaves {}
+ - Si la instrucción es el mismo retorno, no requiere la palbra return
+
+sintaxis:
+    const nombreVariable = (parametros) => instrucción;
+
+    const nombreVariable = (parametros) => {
+        instrucción;
+        return expresión;
+    }
+*/
+
+/* const areaRectangulo = function (base, altura){
+    return base * altura;
+} */
+ 
+const areaRectangulo = (base, altura) => base * altura;
+
+console.log(`El área es: ${ areaRectangulo(3, 9)} m2.`);
+
+/*
+ ------------ Parámetros por defecto -----------------------
+             (default parameters)
+Inicializa un parámetro de la función, si no se envía el argumento cuando se invoca
+
+*/
+
+/**
+ * Calcula el área de un triángulo
+ * @param {number} base del triángulo
+ * @param {number} altura del triángulo
+ * @returns {number} base * altura / 2
+ */
+const areaTriangulo = (base = 1, altura = 1) => base * altura /2.0;
+
+console.log(`El area es: ${ areaTriangulo(4, 12)} m2.`);
+console.log(`El area es: ${ areaTriangulo()} m2.`); //0.5
+console.log(`El area es: ${ areaTriangulo(10)} m2.`); // 5
+console.log( (1000).toString()  ); // conversión base 10 -> 1000
+console.log( (1000).toString(2)  ); // conversión base 10 -> 1111101000
+console.log( (1000).toString(16)  ); // conversión base 10 -> 3e8
+
+
+/*
+ ------------ Parámetros rest -----------------------
+             (rest parameters)
+Permite representar una serie de valores indefinidos en los argumentos
+Esta serie de valores se presentan como un array.
+Rest parameters debe estar al final de la lista de parámetros.
+
+sintaxis:
+     ...nombreParametros
+
+*/
+const sumatoriaMultiplesNumeros = (a = 0, b = 0, ...rest) => {
+    let suma = a + b;
+    for (let i = 0; i < rest.length; i++){
+        suma = suma + rest[i];
+      }
+    return suma;
+}
+
+console.log(`Sumatoria de múltiples números: ${ sumatoriaMultiplesNumeros(2,5)}`); // 7
+console.log(`Múltiples números: ${ sumatoriaMultiplesNumeros(2, 5, 10, 9 )}`); // 26
+console.log(`Múltiples números: ${ sumatoriaMultiplesNumeros(2, 5, 10, 9, 20, 10 )}`); // 56
+console.log(`Múltiples números: ${ sumatoriaMultiplesNumeros(2)}`); // 2 
