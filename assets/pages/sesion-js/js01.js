@@ -53,7 +53,7 @@ let myVar;
 console.log( `Tipo de dato undefined: ${myVar}` );
 
 // tipo de dato null
-// Una variable que intensionalmente se vorra el tipo de dato
+// Una variable que intensionalmente se borra el tipo de dato
 let myVarNull; // undefined
 console.log(`Tipo de dato myVarNull: ${ typeof myVarNull }`); // undefined
 myVarNull = "No me gusta YLE";
@@ -76,6 +76,31 @@ const myObj = {
     [myKey] : 567, 
 }
 console.log( myObj );
+
+//-------------------------Objetos en JavaSCcript
+// tipo de dato Array
+const cancionesCh30 = ["Highway Star", "Trouble", "Saoko", "Rock Dj"];
+
+// tipos de datos Object
+const misDatosDePerfil = {
+    name: "Sergio",
+    lastname: "Torres",
+    age: 39,
+    isBelicoso: false,
+    fullName : function(){
+        return `Nombre completo de Sergh: ${this.name} ${this.lastname}`;
+        // return "Nombre completo de Sergh: " + this.name +" " + this.lasname;
+    }
+    // Agregar una función que muestre el nombre completo en mayúsculas
+
+}
+
+console.log( misDatosDePerfil );
+console.table( misDatosDePerfil );
+console.log ( misDatosDePerfil.fullName ); // f() return `Nombre completo de Sergh: ${this.name} ${this.lastname}`;
+console.log ( misDatosDePerfil.fullName() ); // Sergio Torres
+
+
 
 
 
