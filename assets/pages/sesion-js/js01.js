@@ -90,15 +90,19 @@ const misDatosDePerfil = {
     fullName : function(){
         return `Nombre completo de Sergh: ${this.name} ${this.lastname}`;
         // return "Nombre completo de Sergh: " + this.name +" " + this.lasname;
-    }
+    },
     // Agregar una función que muestre el nombre completo en mayúsculas
-
+    fullNameToUpperCase : function(){
+        //return `Nombre completo de Sergh: ${this.name.toUpperCase()} ${this.lastname.toUpperCase()}`;        
+        return this.fullName().toUpperCase();
+    }
 }
 
 console.log( misDatosDePerfil );
 console.table( misDatosDePerfil );
 console.log ( misDatosDePerfil.fullName ); // f() return `Nombre completo de Sergh: ${this.name} ${this.lastname}`;
 console.log ( misDatosDePerfil.fullName() ); // Sergio Torres
+console.log ( misDatosDePerfil.fullNameToUpperCase() ); // SERGIO TORRES
 
 
 
