@@ -158,5 +158,5 @@ console.log( "Boolean(' '): " + Boolean(" ")  ); // true
 // String
 // [] -> "" , [12,2] -> "12,2", function(){} -> "funtion(){}", {} -> [object, object]
 
-
+console.log ( String( JSON.stringify( {name:"sergio"}) ));
 
