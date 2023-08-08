@@ -251,3 +251,37 @@ console.log(`Cantidad de letras 'p' : ${ counterCharacter(phasePP, "p") } `); //
 console.log(`Cantidad de letras 'p' : ${ counterCharacter(phasePP, "p") + counterCharacter(phasePP, "P") } `); // 13
 console.log(`Cantidad de letras 'p' : ${ counterCharacterUnsensitive(phasePP, "p") } `); // 13
 console.log(`Cantidad de letras(mau) 'p' : ${ contarLetrasP(phasePP) } `); // 13
+
+
+// -------------- Recursividad ---------------------
+/*
+  Una función recursiva es una función que se llama así misma durante su ejecución.
+
+  Se utilizan en algoritmos y soluciones que se basan en la división y conquista
+  como cálculos matemáticos, recorrido de estructura de datos y algoritmos de búsqueda
+  y ordenamiento.
+
+  Patrón:
+    function nombreFuncionRecursiva( parametro  ){
+        if( condicionParo){
+            return expresión;
+        }
+        else {
+            // llamada recursiva
+            nombreFuncionRecursiva( nuevoParametro );
+        }
+    }
+*/
+
+//......... Cálculo del factorial de un número usando ciclo for ...............
+function factorialConCicloFor( numero ) {
+    let factorial = 1;
+
+    for (let i = numero; i > 0; i--) {// i = i - 1
+        console.log(`factorial: ${factorial} * ${i} = ${factorial*i}`)
+        factorial = factorial * i;        
+    }
+    return factorial;
+}
+
+console.log(`El factorial de 5 es: ${factorialConCicloFor(5)}`) // 1*2*3*4*5 = 120
