@@ -216,4 +216,17 @@ function getCommonCoursesWithFilter( array1Courses, array2Courses ){
     return  array1Courses.filter( course=> array2Courses.includes(course) );
 }
 
-console.log(`Común: ${getCommonCoursesWithFilter( student1Courses, student2Courses )}`)
+console.log(`Común: ${getCommonCoursesWithFilter( student1Courses, student2Courses )}`);
+
+//--------------- Resolviendo con filter e include por partes ----------------------
+console.log("###################################");
+function includeCourse( course, index, array ){
+    console.log(`Elemento ${course}, indice ${index}, include ${student2Courses.includes(course)}`);
+    return student2Courses.includes(course); // evaluación // ["Geography", "Spanish", "Programming", "Music"]
+}
+
+function getCoursesWithFilter( array1Courses){
+      const commonCourses = array1Courses.filter( includeCourse ); // ["Math", "English", "Programming", "Biology", "Physics", "Music"];
+      return commonCourses;
+}
+console.log(`Comúnxpartes: ${getCoursesWithFilter( student1Courses, student2Courses )}`);
