@@ -210,3 +210,10 @@ function cursosEnComun( student1Courses,  student2Courses  ){
 }
 console.log ( cursosEnComun( student1Courses, student2Courses ) );
 
+//--------------- Resolviendo con filter e include ----------------------
+
+function getCommonCoursesWithFilter( array1Courses, array2Courses ){
+    return  array1Courses.filter( course=> array2Courses.includes(course) );
+}
+
+console.log(`Común: ${getCommonCoursesWithFilter( student1Courses, student2Courses )}`)
