@@ -243,7 +243,11 @@ const phasePP = "Peso Pluma pica papas con un pico y una pala con un pico pica p
 const counterCharacter = ( phase, character ) => phase.split(character).length-1;
 
 const counterCharacterUnsensitive = ( phase, character ) => phase.toLowerCase().split(character).length-1;
-
+const contarLetrasP = (frase) => {
+    const letrasP = frase.split('').filter(letra => letra === 'p' || letra === 'P');
+    return letrasP.length;
+  };
 console.log(`Cantidad de letras 'p' : ${ counterCharacter(phasePP, "p") } `); // 13
 console.log(`Cantidad de letras 'p' : ${ counterCharacter(phasePP, "p") + counterCharacter(phasePP, "P") } `); // 13
 console.log(`Cantidad de letras 'p' : ${ counterCharacterUnsensitive(phasePP, "p") } `); // 13
+console.log(`Cantidad de letras(mau) 'p' : ${ contarLetrasP(phasePP) } `); // 13
