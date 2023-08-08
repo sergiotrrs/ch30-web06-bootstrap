@@ -76,6 +76,8 @@ const myObj = {
     [myKey] : 567, 
 }
 console.log( myObj );
+console.log( myObj.codigo ); // 567
+console.log( myObj[myKey] ); // 567
 
 //-------------------------Objetos en JavaSCcript
 // tipo de dato Array

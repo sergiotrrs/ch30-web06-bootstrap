@@ -144,3 +144,69 @@ console.log(`Sumatoria de múltiples números: ${ sumatoriaMultiplesNumeros(2,5)
 console.log(`Múltiples números: ${ sumatoriaMultiplesNumeros(2, 5, 10, 9 )}`); // 26
 console.log(`Múltiples números: ${ sumatoriaMultiplesNumeros(2, 5, 10, 9, 20, 10 )}`); // 56
 console.log(`Múltiples números: ${ sumatoriaMultiplesNumeros(2)}`); // 2 
+
+
+
+
+/*
+ ------------ Funciones de Callback -----------------------
+ Es una función(definida, expresada, arrow, anónima) que se pasa a otra función como argumento.
+ Se para en el argumento como referencia ( sin parentesis).
+ */
+
+ function saludoALosPokemones(){
+    return "yo te elijo";
+ }
+
+ function saludoSquirtle( nombre ){
+    return "Vamo' a calmano " +  nombre;
+ }
+
+ function eligiendoPokebola( saludo, nombre ){
+    console.log("==============================");
+    console.log("Hola, estás en la liga pokemon");
+    console.log("Elige a tu mejor Pokemon");
+    console.log( saludo(nombre) );   
+ }
+
+ // eligiendoPokebola(); // saludo is not a function
+ // eligiendoPokebola( saludoALosPokemones()  ); // saludo is not a function
+ // eligiendoPokebola( "yo te elijo"  );
+ eligiendoPokebola( saludoALosPokemones ); // "yo te elijo"
+ eligiendoPokebola( saludoSquirtle, "Leonardo Hdz." ); // "Vamo' a calmano"
+ eligiendoPokebola( function(){return "Pika Pika Chuu"} ); // 
+ eligiendoPokebola( function(nombre){return "quiiiiii soy " + nombre}, "Cubone" ); // quiiiiii soy Cubone
+ eligiendoPokebola( nombre => `quiiiii soy ${nombre}`    , "Charizard" ); // quiiiiii soy Cubone
+
+/*
+  Ejercicio 4
+  Crear un programa que itere sobre dos arreglos;
+  si hay cursos en común, imprimirlos en la consola.
+
+ student1Courses = ["Math", "English", "Programming", "Biology", "Physics", "Music"];
+ student2Courses = ["Geography", "Spanish", "Programming", "Music"];
+
+  salida: "Cursos en común: Programming, Music"
+*/
+
+//--------------- Resolviendo con ciclos anidados ----------------------
+const student1Courses = ["Math", "English", "Programming", "Biology", "Physics", "Music"];
+const student2Courses = ["Geography", "Spanish", "Programming", "Music"];
+
+
+function cursosEnComun( student1Courses,  student2Courses  ){
+    const commonCourses = []; // guardar los cursos en comun
+
+    for (let i = 0; i < student1Courses.length; i++) { // ["Math", "English", "Programming", "Biology", "Physics", "Music"];
+        for (let j = 0; j < student2Courses.length; j++) { // ["Geography", "Spanish", "Programming", "Music"]
+            console.log(` ${student1Courses[i]} === ${student2Courses[j]} : ${student1Courses[i] === student2Courses[j]}`)
+            if ( student1Courses[i] === student2Courses[j] ){
+                commonCourses.push(student1Courses[i]);
+            }    
+        }        
+    }
+
+    return `Cursos en común ${commonCourses}`
+}
+console.log ( cursosEnComun( student1Courses, student2Courses ) );
+
