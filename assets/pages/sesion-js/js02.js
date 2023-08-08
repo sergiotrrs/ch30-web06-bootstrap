@@ -299,3 +299,54 @@ function factorialConRecursividad( numero ){
 
 console.log(`El factorial recursivo de 5 es: 
 ${factorialConRecursividad(5)}`);
+
+// -------------- Saludar con recursividad ---------------------
+/*
+ Generar una función recursiva que muestre en consola un saludo
+ donde se indique el número saludo desado
+
+ ej: saludar 10 veces
+
+  Saludo 1
+  Saludo 2
+  Saludo 3
+   ....
+  Saludo 9
+  Saludo 10
+
+*/
+
+function saludoz( numeroSaludo){
+    if( numeroSaludo === 1){
+        return `Saludo ${numeroSaludo}`;
+    }
+    else {
+        // llamada recursiva
+        console.log(`Saludo ${numeroSaludo}`)
+        return saludoz( numeroSaludo - 1 );
+    }
+}
+console.log("****** Saludo Descendente ******");
+console.log(saludoz(10));
+
+// -------------------------------------------------
+function saludoRecursivo( numeroSaludo ) {
+    if(numeroSaludo > 1){
+        saludoRecursivo( numeroSaludo - 1)
+        console.log(`Saludo ${numeroSaludo}`);
+    }
+    else{
+        console.log(`Saludo ${numeroSaludo}`);
+    }
+}
+/*
+        //    REFACTORIZADO
+function saludoRecursivo( numeroSaludo ) {
+    if(numeroSaludo > 1){
+        saludoRecursivo( numeroSaludo - 1)     
+    }    
+        console.log(`Saludo ${numeroSaludo}`);    
+}
+*/
+console.log("****** Saludo Ascendente ******");
+saludoRecursivo(10);
