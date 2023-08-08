@@ -279,9 +279,23 @@ function factorialConCicloFor( numero ) {
 
     for (let i = numero; i > 0; i--) {// i = i - 1
         console.log(`factorial: ${factorial} * ${i} = ${factorial*i}`)
-        factorial = factorial * i;        
+        factorial *= i; // factorial = factorial * i        
     }
     return factorial;
 }
 
 console.log(`El factorial de 5 es: ${factorialConCicloFor(5)}`) // 1*2*3*4*5 = 120
+
+//......... Cálculo del factorial de un número usando recursividad ...............
+
+function factorialConRecursividad( numero ){
+    if ( numero <= 0 ) {
+        return 1;
+    } else {
+        console.log(`${numero} * ${numero-1}`);
+        return numero * factorialConRecursividad( numero -1 );
+    }
+}
+
+console.log(`El factorial recursivo de 5 es: 
+${factorialConRecursividad(5)}`);
