@@ -188,7 +188,7 @@ console.log(`valor: ? ${setVelocidadVentilador()}`); // apagado
 const pagoTarjetaCredito = false;
 
 let msj;
-if (pagoTarjetaCredito === true ) msj= "A realizado el pago de su TC";
+if ( pagoTarjetaCredito ) msj= "A realizado el pago de su TC";
 else msj = "No ha realizado el pago de TC";
 
 console.log(`El usuario ${msj}`);
