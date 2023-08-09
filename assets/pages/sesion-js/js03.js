@@ -141,15 +141,13 @@ console.log(mensaje);
 const setVelocidadVentilador = ( velocidad = 0 )=>{
     let mensaje;
     // la condicional switch utiliza la comparación estricta ( === )
-    switch ( velocidad ) {
+    switch (  parseInt( velocidad) ) {
         case 0:
             mensaje = "apagado"; break;
         case 1:
             mensaje = "velocidad baja"; break;
         case 2:
-        case "2":
             mensaje = "velocidad media"; break;
-
         default:
             mensaje = "el nivel no existe"; break;
     }
