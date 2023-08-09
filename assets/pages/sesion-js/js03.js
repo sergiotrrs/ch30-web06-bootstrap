@@ -185,10 +185,13 @@ console.log(`valor: ? ${setVelocidadVentilador()}`); // apagado
   condición ? expresiónSiCondiciónEsVerdadera : expresionSiCondiciónEsFalsa; 
 
 */
-const pagoTarjetaCredito = false;
+const pagoTarjetaCredito = true;
 
+/*
 let msj;
 if ( pagoTarjetaCredito ) msj= "A realizado el pago de su TC";
 else msj = "No ha realizado el pago de TC";
+*/
+const msj = pagoTarjetaCredito ? "A realizado el pago de TC" : "No ha realizado el pago de TC";
 
 console.log(`El usuario ${msj}`);
