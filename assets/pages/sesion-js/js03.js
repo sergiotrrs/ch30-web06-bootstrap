@@ -148,6 +148,8 @@ const setVelocidadVentilador = ( velocidad = 0 )=>{
             mensaje = "velocidad baja"; break;
         case 2:
             mensaje = "velocidad media"; break;
+        case "2":
+            mensaje = "velocidad media"; break;
         default:
             mensaje = "el nivel no existe"; break;
     }
@@ -155,4 +157,6 @@ const setVelocidadVentilador = ( velocidad = 0 )=>{
 }
 console.log(`La velocidad del ventilador está en ${setVelocidadVentilador(1)}`); // baja
 console.log(`La velocidad del ventilador está en ${setVelocidadVentilador(8)}`); // no existe
-console.log(`La velocidad del ventilador está en ${setVelocidadVentilador("2")}`); // no existe
+console.log(`valor: 2 ${setVelocidadVentilador(2)}`); // velocidad media
+console.log(`valor: "2" ${setVelocidadVentilador("2")}`); // velocidad media
+console.log(`valor: ? ${setVelocidadVentilador()}`); // apagado
