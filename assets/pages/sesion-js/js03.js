@@ -206,3 +206,19 @@ console.log(`El usuario ${msj}`);
 const userAge =  17;
 const mayorEdad = userAge >= 18 ? "" : " no";
 console.log(`El usuario${mayorEdad} es mayor de edad`);
+
+//......... Cálculo del factorial de un número usando recursividad y operador ternario...
+
+/*
+function factorialConRecursividad( numero ){
+    if ( numero <= 0 ) {
+        return 1;
+    } else {
+        return numero * factorialConRecursividad( numero -1 );
+    }
+}
+*/
+function factorialConRecursividad( numero ){
+  return numero < 1 ? 1 : numero * factorialConRecursividad( numero - 1 ); 
+}
+console.log(`El factorial recursivo de 5 es: ${factorialConRecursividad(5)}`);
