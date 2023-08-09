@@ -147,9 +147,9 @@ const setVelocidadVentilador = ( velocidad = 0 )=>{
         case 1:
             mensaje = "velocidad baja"; break;
         case 2:
-            mensaje = "velocidad media"; break;
         case "2":
             mensaje = "velocidad media"; break;
+
         default:
             mensaje = "el nivel no existe"; break;
     }
