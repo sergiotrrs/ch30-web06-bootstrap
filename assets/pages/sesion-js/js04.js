@@ -97,3 +97,64 @@ personasEnCh30.forEach( (equipo, indexEquipo) =>
 // Solo se imprimi el elemento (persona)                    
 //personasEnCh30.forEach( equipo => equipo.forEach( persona=> console.log(`${persona}`)));
 
+// ------------------- Uso de break en ciclos ----------------------------
+// break no detiene la ejecución de la iteración en curso y termina el ciclo.
+
+for (let index = 0; index < 10; index++) {
+    if ( index >= 5 ) break;
+    console.log( index ); // 0...4    
+}
+
+// Realizar tablas de multiplicar de 1 al 5 con for tradicional
+/*
+  1 * 1  = 1
+  1 * 2  = 2
+  ...
+  5 * 9  = 45
+  5 * 10 = 50
+*/
+
+for (let i = 1; i <= 5; i++) {
+    for (let j = 1; j <= 10; j++) {
+        console.log(`${i} * ${j} = ${ i * j }`);        
+    }    
+}
+
+console.log("===== Uso de break =========")
+// Realizar la multiplicación hasta el 4
+// 1*1, 1*2, 1*3, 1*4..... 5*3, 5*4
+for (let i = 1; i <= 5; i++) {
+    for (let j = 1; j <= 10; j++) {
+        if ( j === 5 ) break;
+        console.log(`${i} * ${j} = ${ i * j }`);        
+    }    
+}
+
+console.log("===== Uso de break con tag =======")
+// Realizar la multiplicación hasta el 2 * 4
+// 1*1, 1*2, 1*3, 1*4..... 2*3, 2*4
+rompeCicloSuperior: 
+for (let i = 1; i <= 5; i++) {
+    
+    for (let j = 1; j <= 10; j++) {
+        if ( i===2 && j==5 ) break rompeCicloSuperior;
+        console.log(`${i} * ${j} = ${ i * j }`);        
+    }    
+}
+
+// -------------- Uso de continue ---------------------
+/*
+ Termina la ejecución en la iteración actual y continua con la próxima iteración.
+ ( o en el tag que se indique).
+*/
+console.log("===== Uso de continue con tag =======")
+// Realizar la multiplicación hasta el  3
+// 1*1, 1*2, 1*3 ..... 2*3... 5*3
+continuaCicloSuperior: 
+for (let i = 1; i <= 5; i++) {    
+    for (let j = 1; j <= 10; j++) {
+        if ( j > 3 ) continue continuaCicloSuperior;
+        console.log(`${i} * ${j} = ${ i * j }`);        
+    }    
+}
+
