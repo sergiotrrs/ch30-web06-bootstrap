@@ -58,6 +58,8 @@ const myPet = "Kraken";
 for (const character of myPet  ){
     console.log( character );
 }
+myPet.split("").forEach( character => console.log( character ))
+
 
 for (const equipo of personasEnCh30 ) {
     console.log( equipo ); // Arreglo de equipos
@@ -66,6 +68,32 @@ for (const equipo of personasEnCh30 ) {
     }
 }
 
+// ---------------- forEach -------------------------
+/*
+ Método que se utiliza para iterar colecciones, arreglos.
+ Permite ejecutar una función por cada elemento del arreglo.
 
+*/
+console.table( personasEnCh30 ); 
+
+function iterarEquipos( equipo, indice, arreglo ){
+    console.log(`Indice ${indice}: ${equipo} `)
+    equipo.forEach(  iterarPersonas  );
+    return equipo; // arreglo de cada equipo integrador
+}
+
+function iterarPersonas( persona, indice ){
+    console.log(`Indice P ${indice}: ${persona} `)
+    return persona;
+}
+
+
+// personasEnCh30.forEach( iterarEquipos );
+
+personasEnCh30.forEach( (equipo, indexEquipo) => 
+                    equipo.forEach( (persona, indexPer)=> 
+                    console.log(` [${indexEquipo}][${indexPer}] : ${persona}` )));
  
+// Solo se imprimi el elemento (persona)                    
+//personasEnCh30.forEach( equipo => equipo.forEach( persona=> console.log(`${persona}`)));
 
