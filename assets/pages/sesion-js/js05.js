@@ -1,0 +1,1 @@
+console.log("SEsión JS05 Condiciones y expresiones");
