@@ -92,7 +92,63 @@ console.log(`x : ${ x++ } y:${ ++y }`); // 3, 5     // 4->5  5
 console.log(`x : ${ x } y:${ y }`); // 4 , 5        // 5     5
 
 
-              
+// ---------------- Operadores lógicos && y || ---------------
+/*
+ También son conocidos como operadores de corto circuito ( short-circuit operators ).
+
+ &&  : La evaluación se detiene tan pronto como se encuentra un operador falso.
+       Ya no se evalua el segundo operando y se retorna la expresión de OP1.
+ OP1 && OP2 Si OP1 es verdadero, se retorna la expresión de OP2.
+ OP1 || OP2 Si OP1 es verdadero, se retorna la expresión de OP1.
+
+*/
+
+const va = true, vb = false , vc = true; // cont va, const vb, const vc
+const n1 = n2 = n3 = true; // const n1, var n2, var n3.
+console.log( va || vb && vc ); // true
+// Conversión a booleano
+// En la conversión de boolean los siguientes valores son false:
+// "", 0, null, undefined, NaN
+
+console.log(  va && "Holi Crayoli" ); // "Holi Crayoli"
+console.log(  vb && "Holi Crayoli" ); // false
+console.log(  NaN && "Holi Crayoli" ); // NaN
+console.log(  "false" && "Holi Crayoli" ); // "Holi Crayoli"
+console.log(  "" && "Activado" ); // ""
+console.log(  "Activado" && "" ); // ""
+console.log(  "Mau" && "Activado" ); // "Activado"
+
+console.log(  "Activado" || "" ); // Activado
+console.log(  "activado" || varSinDeclarar ); // activado
+
+const person = {
+  name : "Leo",
+  lastname : "Ronaldo",
+  age : 25,
+  //occupation : "Full-Stack developer",
+};
+
+console.log(`nombre: ${ person.name }`);
+console.log(`nombre: ${ person["name"] }`);
+
+/* if ( person.occupation === undefined || person.occupation === "" ){
+  person.occupation = "Software Enginner";
+} */
+// const occupation = person.occupation     ; // Software Enginner 
+
+// const occupation = person.occupation === undefined ? "Software Enginner" : person.occupation; // Software Enginner 
+
+const occupation = person.occupation ||  "Software Enginner"; // Software Enginner 
+// const occupation = person.occupation ??  "Software Enginner"; // operador nullish Coalescing
+
+console.log(`Ocupación: ${ occupation }`); // Software Enginner
+
+
+
+
+
+
+
 
 
 
