@@ -84,7 +84,7 @@ const gretting = ( name ) => {
 
       return myPromise;
 }
-
+/*
 gretting("Ana")
     .then( response => console.log(response.code, response.message) )
     .catch( error => console.log( error.code, error.message) );
@@ -96,3 +96,34 @@ gretting("Luisa")
 gretting("Eduardo")
     .then( response => console.log(response.code, response.message) )
     .catch( error => console.log( error.code, error.message) );
+*/
+//---------------- consumir las promesas con async y await-------------
+/*
+ Async y Await facilita la escritura y lectura de código asíncrono.
+ Permite escribir código asíncrono de manera similar a cómo se escribiría
+ código síncrono.
+
+*/
+
+async function grettingCh30 ( name ) {
+    console.log("----Saludos a la bandita de la Ch30----- ");
+    const result = await gretting( name);
+    console.log( result );
+    console.log("--- Fin del saludo ----");
+}
+// gretting = async () => {}
+
+
+const grettingAll = async () =>{
+    try{
+        await grettingCh30( "Anneth" );
+        await grettingCh30( "Mau" );
+        await grettingCh30( "Leonardo" );
+    }
+    catch( error ){
+        console.warn("Se rechazó una promesa");
+        console.table( error )
+    }
+
+}
+grettingAll();
