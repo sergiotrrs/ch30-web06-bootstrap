@@ -48,7 +48,7 @@ console.log("01-Antes de consumir la promesa");
         */
 
 pinkyPromise
-    .then( ( response )=> console.log(`Promesa Resuelta: ${response}`) ) 
+    .then( ( response )=> console.log(`Promesa Resuelta: ${response}`) )
     .catch( ( error )=> console.log(`Promesa Rechazada: ${error.message}`) ) 
     .finally( ()=> console.log("Se ha terminado de resolver la promesa")  ); 
                 
