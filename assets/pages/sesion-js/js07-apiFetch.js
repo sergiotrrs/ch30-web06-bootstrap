@@ -36,6 +36,7 @@ const getProducts =  async ( url )=>{
      const resolve = await fetch( url );
      const resolveJson = await resolve.json();
      printToDOM( resolveJson );
+     localStorage.setItem("products", JSON.stringify(resolveJson)   ); //stringify: Convierte un OBJ a JSON
  }
  catch( error ){
     console.warn(error);
@@ -43,7 +44,7 @@ const getProducts =  async ( url )=>{
         
 };
 
-getProducts( urlFakeStore );
+//getProducts( urlFakeStore );
 
 function printToDOM( products ){
     let unorderList = "";
