@@ -43,10 +43,6 @@ const getProducts =  async ( url )=>{
         
 };
 
-
-
-
-
 getProducts( urlFakeStore );
 
 function printToDOM( products ){
