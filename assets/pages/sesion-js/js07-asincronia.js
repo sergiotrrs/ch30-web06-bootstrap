@@ -38,10 +38,32 @@ const pasoAsincrono = ( name ) =>{
 };
 
 console.log("*******************");
-primerPaso(); // 01- Inicio del mi programa
-pasoAsincrono("Baby Yoda multiverso"); // 5s -> Hola Baby Yoda
-tercerPaso(); // 03- Fin de mi programa
+// primerPaso(); // 01- Inicio del mi programa
+// pasoAsincrono("Baby Yoda multiverso"); // 5s -> Hola Baby Yoda
+// tercerPaso(); // 03- Fin de mi programa
 
+// ------------------------- setInterval ------------------------
+// Ejecuta una funció de manera reiterada con un tiempo de retardo fijo
 
+const pasoConIntervalo = () => {
+    setInterval( ()=> console.log("Hola " + new Date().toLocaleString() )  , 3000 );
+}
 
+//primerPaso(); // 01- Inicio del mi programa
+//pasoConIntervalo();
+//tercerPaso(); // 03- Fin de mi programa
 
+// -------------------------Iniciar y detener setInterval ----------
+
+const startInterval = document.getElementById("startInterval");
+const stopInterval = document.getElementById("stopInterval");
+const dateH2 = document.getElementById("dateH2");
+let idInterval; // la referencia del ID que nos proprociona setInterval
+
+startInterval.addEventListener("click" , ()=>{
+    setInterval(  ()=>{ dateH2.innerHTML = new Date().toLocaleString() }, 1000   );
+}  );
+
+stopInterval.addEventListener("click" , ()=>{
+    
+}  );
