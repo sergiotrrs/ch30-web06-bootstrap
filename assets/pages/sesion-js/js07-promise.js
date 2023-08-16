@@ -55,3 +55,36 @@ pinkyPromise
 console.log("03-Después de consumir la promesa");
 
 
+// Haciendo una promesa con parámetros
+
+/**
+ * Saludo especial para las personas que comience con A, retardo de 5 segundos.
+ * Saludo especial para las personas que comiencen con L
+ * El saludo se genera después de 5 segundos.
+ * @param {string} name 
+ */
+const gretting = ( name ) => {
+      // const myPromise = new Promise( ()=>{}  );
+      const myPromise = new Promise( (resolve, reject) => {
+        const firstChar = name.charAt(0).toLowerCase();
+        if( firstChar === 'a'  )
+            //resolve({code: 200 , message: `Soy ${name} ¡hola a todos!` });
+            setTimeout( ()=> resolve({code: 200 , message: `Soy ${name} ¡hola a todos!` }),5000 );
+        else if ( firstChar === 'l'  )
+            resolve({code: 201 , message: `Soy ${name} 
+                       Saludos a toda la banda de la ch30 
+                       taka taka taka taka taka 
+                       viene viene viene viene 
+                       takta taka taka taka
+            ` });
+        else 
+            reject({code:404, message: `No estoy disponible para ${name}`});        
+
+      }  ); // fin de Promise
+
+      return myPromise;
+}
+
+gretting("Ana")
+    .then( response => console.log(response.code, response.message) )
+    .catch( error => console.log( error.code, error.message) );
