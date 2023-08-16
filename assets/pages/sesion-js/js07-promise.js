@@ -88,3 +88,11 @@ const gretting = ( name ) => {
 gretting("Ana")
     .then( response => console.log(response.code, response.message) )
     .catch( error => console.log( error.code, error.message) );
+
+gretting("Luisa")
+    .then( response => console.log(response.code, response.message) )
+    .catch( error => console.log( error.code, error.message) );
+
+gretting("Eduardo")
+    .then( response => console.log(response.code, response.message) )
+    .catch( error => console.log( error.code, error.message) );
