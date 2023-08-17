@@ -72,11 +72,42 @@ function insertListItems( listItems ){
 
 function onClickLifeSpan(){
     const products = createProductsOfClassProducts(); // Crea objetos
-    setTimeout( ()=>{
-        const productsListItems = createListItemsOfProducts ( products );
-        insertListItems( productsListItems );
+    setTimeout( ()=>{ // crea retardo de 5 ms para ver la diferencia de tiempo.
+        const productsListItems = createListItemsOfProducts( products ); // Crea <li>
+        insertListItems( productsListItems ); // insertar en el DOM
     } , 5000);
 }
 
 
+//==============================================================
 
+function showProducts(){
+    const products = createProductsOfClassProducts();
+    console.table(products);
+    const productCards = createCardsOfProducts( products);
+    console.log(productCards);
+    insertCards( productCards );
+}
+
+function createCardsOfProducts( products){
+    return products.map( (product)=>{
+        return `
+        <div class="card col-4 m-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">${ product.name}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">${ product.id}</h6>
+          <p class="card-text">Some title content pon uwu xd :V</p>
+          <a href="#" class="card-link">Card link</a>
+        </div>
+      </div>       
+        `
+    } );
+}
+
+
+function insertCards( productCards ) {
+    const products = document.getElementById("products");
+    const cards = `<div class="row">  ${productCards.join("")}  </div>`;
+
+    products.innerHTML = cards;
+}
