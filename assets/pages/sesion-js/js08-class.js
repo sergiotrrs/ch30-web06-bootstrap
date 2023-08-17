@@ -28,6 +28,10 @@ class Products{
 
 }
 
+/**
+ * Creación de arreglode productos con la clase Products
+ * @returns 
+ */
 function createProductsOfClassProducts(){
              // Instanciar la clase Products para crear un objeto
  const zote = new Products(1,"Zote");
@@ -45,7 +49,12 @@ function createProductsOfClassProducts(){
  return products;
 }
 
-function lifeSpanProducts( products ) {
+/**
+ * Crea list Items de un arreglo de productos
+ * @param {array} products 
+ * @returns 
+ */
+function createListItemsOfProducts( products ) {
     // El método map sobre un arreglo, itera sobre cada elemento
     // del arreglo y entrega un nuevo arreglo.
     const productsLifeSpan = products.map( product => 
@@ -64,7 +73,7 @@ function insertListItems( listItems ){
 function onClickLifeSpan(){
     const products = createProductsOfClassProducts(); // Crea objetos
     setTimeout( ()=>{
-        const productsListItems = lifeSpanProducts ( products );
+        const productsListItems = createListItemsOfProducts ( products );
         insertListItems( productsListItems );
     } , 5000);
 }
