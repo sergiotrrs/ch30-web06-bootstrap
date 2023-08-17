@@ -1,7 +1,7 @@
 console.log("Sesión Js08- class");
 
-const getProducts = async() => {
-    const url = "https://fakestoreapi.com/products";
+const getProducts = async(url = "https://fakestoreapi.com/products" ) => {
+    // const url = "https://fakestoreapi.com/products";
     //const url = "https://reqres.in/api/users?page=2";
 
     const responseJSON = await fetch(url);
@@ -84,7 +84,8 @@ function onClickLifeSpan(){
 
 async function showProducts(){
     // const products = createProductsOfClassProducts();
-    const products = await createProductsOfFakeStore();
+    // const products = await createProductsOfFakeStore();
+    const products = await createProductsOfTapioca();
     console.table(products);
     const productCards = createCardsOfProducts( products);
     insertCards( productCards );
@@ -94,6 +95,11 @@ async function createProductsOfFakeStore(){
     const fakeProducts = await getProducts();
     //return fakeProducts.maps( (fakeProduct)=> new Products( fakeProduct.id , fakeProduct.title));
     return fakeProducts.map( ({id, title})=> new Products( id , title));
+}
+
+async function createProductsOfTapioca(){
+    const fakeProducts = await getProducts("/assets/json/tapioca.json");    
+    return fakeProducts.map( ({serie, nombre})=> new Products( serie , nombre));
 }
 
 
