@@ -7,6 +7,7 @@ const getProducts = async() => {
     const responseJSON = await fetch(url);
     const response = await responseJSON.json();
     console.log( response)
+    return response;
 }
 
 /**
@@ -81,13 +82,20 @@ function onClickLifeSpan(){
 
 //==============================================================
 
-function showProducts(){
-    const products = createProductsOfClassProducts();
+async function showProducts(){
+    // const products = createProductsOfClassProducts();
+    const products = await createProductsOfFakeStore();
     console.table(products);
     const productCards = createCardsOfProducts( products);
-    console.log(productCards);
     insertCards( productCards );
 }
+
+async function createProductsOfFakeStore(){
+    const fakeProducts = await getProducts();
+    //return fakeProducts.maps( (fakeProduct)=> new Products( fakeProduct.id , fakeProduct.title));
+    return fakeProducts.map( ({id, title})=> new Products( id , title));
+}
+
 
 function createCardsOfProducts( products){
     return products.map( (product)=>{
