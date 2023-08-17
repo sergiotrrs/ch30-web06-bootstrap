@@ -16,7 +16,8 @@
     "serie": 2334567,
     "nombre": "Explosión de chocolate ",
     "precio": 67.80,
-    "ingredientes": ["vainilla", "tapioca","café"]
+    "ingredientes": ["vainilla", "tapioca","café"],
+    "image": "https://simple-nourished-living.com/wp-content/uploads/2014/05/crockpot-chocolate-tapioca-pudding.jpg"
 },
 
 {

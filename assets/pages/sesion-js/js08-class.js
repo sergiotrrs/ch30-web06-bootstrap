@@ -16,16 +16,18 @@ const getProducts = async(url = "https://fakestoreapi.com/products" ) => {
  */
 class Products{
     // El método constructor nos ayuda a instanciar un objeto
-    constructor( id, name){
+    constructor( id, name, image){
         this.name = name; // creando el atributo name y le asignamos el valor de parámetro name
         this.id = id;
         this.createdAt = new Date().getTime();
+        this.image = image || "https://cdn7.kiwilimon.com/recetaimagen/21383/10752.jpg"
         // console.log(`Producto ${this.name} se creó el ${new Date().toLocaleString()}`);
     }
 
     lifeSpan(){
         return new Date().getTime() - this.createdAt;
     }
+
 
 }
 
@@ -99,7 +101,7 @@ async function createProductsOfFakeStore(){
 
 async function createProductsOfTapioca(){
     const fakeProducts = await getProducts("/assets/json/tapioca.json");    
-    return fakeProducts.map( ({serie, nombre})=> new Products( serie , nombre));
+    return fakeProducts.map( ({serie, nombre, image })=> new Products( serie , nombre , image || null));
 }
 
 
@@ -107,6 +109,7 @@ function createCardsOfProducts( products){
     return products.map( (product)=>{
         return `
         <div class="card col-4 m-3" style="width: 18rem;">
+        <img src="${product.image}" class="card-img-top my-2" alt="tapioca">
         <div class="card-body">
           <h5 class="card-title">${ product.name}</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary">${ product.id}</h6>
