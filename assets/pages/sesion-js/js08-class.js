@@ -19,7 +19,7 @@ class Products{
         this.name = name; // creando el atributo name y le asignamos el valor de parámetro name
         this.id = id;
         this.createdAt = new Date().getTime();
-        console.log(`Producto ${this.name} se creó el ${new Date().toLocaleString()}`);
+        // console.log(`Producto ${this.name} se creó el ${new Date().toLocaleString()}`);
     }
 
     lifeSpan(){
@@ -36,10 +36,38 @@ function createProductsOfClassProducts(){
  products.push( new Products(2, "Palmolive") );
  products.push( new Products(3, "Coca-cola 2l") );
  products.push( new Products(4, "Cajeta Corona") );
+ products.push( new Products(5, "Chips") );
+ products.push( new Products(6, "Herdez, chicharos") );
+ products.push( new Products(7, "Salsa Valentina") );
+ products.push( new Products(8, "Sopa Nissin") );
 
- console.table ( products );
-
+ // console.table ( products );
+ return products;
 }
 
-createProductsOfClassProducts();
+function lifeSpanProducts( products ) {
+    // El método map sobre un arreglo, itera sobre cada elemento
+    // del arreglo y entrega un nuevo arreglo.
+    const productsLifeSpan = products.map( product => 
+        `<li> ${product.name} se creó hace ${product.lifeSpan() / 1000} s. </li>`  
+        );
+    return productsLifeSpan;
+}
+
+function insertListItems( listItems ){
+    const products = document.getElementById("products");
+    const unorderList = `<ul>  ${listItems.join("")}  </ul>`;
+
+    products.innerHTML = unorderList;
+}
+
+function onClickLifeSpan(){
+    const products = createProductsOfClassProducts(); // Crea objetos
+    setTimeout( ()=>{
+        const productsListItems = lifeSpanProducts ( products );
+        insertListItems( productsListItems );
+    } , 5000);
+}
+
+
 
