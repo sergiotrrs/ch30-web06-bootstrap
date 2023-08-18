@@ -1,3 +1,5 @@
+import { Products } from "./js08-product-class.js";
+
 console.log("Sesión Js08- class");
 
 const getProducts = async(url = "https://fakestoreapi.com/products" ) => {
@@ -8,27 +10,6 @@ const getProducts = async(url = "https://fakestoreapi.com/products" ) => {
     const response = await responseJSON.json();
     console.log( response)
     return response;
-}
-
-/**
- * Clase productos
- * El nombre de las clases se realizancon UpperCamelCase
- */
-class Products{
-    // El método constructor nos ayuda a instanciar un objeto
-    constructor( id, name, image){
-        this.name = name; // creando el atributo name y le asignamos el valor de parámetro name
-        this.id = id;
-        this.createdAt = new Date().getTime();
-        this.image = image || "https://cdn7.kiwilimon.com/recetaimagen/21383/10752.jpg"
-        // console.log(`Producto ${this.name} se creó el ${new Date().toLocaleString()}`);
-    }
-
-    lifeSpan(){
-        return new Date().getTime() - this.createdAt;
-    }
-
-
 }
 
 /**
@@ -83,6 +64,10 @@ function onClickLifeSpan(){
 
 
 //==============================================================
+const refShowProducts = document.getElementById("show-products");
+refShowProducts.addEventListener( "click", ()=>{
+    showProducts();
+});
 
 async function showProducts(){
     // const products = createProductsOfClassProducts();
