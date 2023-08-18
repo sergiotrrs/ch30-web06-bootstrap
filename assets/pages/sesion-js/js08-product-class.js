@@ -33,11 +33,11 @@ class TapiocaProducts extends Products {
     }
 
     // metodos setters y getters
-    getAtributoEncapsulado(){
+    get atributoEncapsulado(){
         return this.#atributoEncapsulado;
     }
 
-    setAtributoEncapsulado( nuevoValor ){
+    set atributoEncapsulado( nuevoValor ){
         this.#atributoEncapsulado = nuevoValor;
     }
 }

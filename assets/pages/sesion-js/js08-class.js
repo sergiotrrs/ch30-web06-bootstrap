@@ -105,7 +105,7 @@ function createCardsOfProducts( products){
               `<ol>
                ${product.ingredients.map( ingredient => `<li> ${ingredient}</li>` ).join("")}  
                </ol>
-               <h4> atributo: ${product.getAtributoEncapsulado() } </h4>
+               <h4> atributo: ${product.atributoEncapsulado } </h4>
                `
                : ` <p>ingredientes no disponibles</p>`
           }
