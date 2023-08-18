@@ -31,29 +31,27 @@ const getProducts =  ( url )=>{
         .catch( (error)=> console.warn( error ) );
 };*/
 
-const getProducts =  async ( url )=>{
- try{
-     const resolve = await fetch( url );
-     const resolveJson = await resolve.json();
-     printToDOM( resolveJson );
-     localStorage.setItem("products", JSON.stringify(resolveJson)   ); //stringify: Convierte un OBJ a JSON
- }
- catch( error ){
-    console.warn(error);
- }
-        
+const getProducts = async (url) => {
+   try {
+      const resolve = await fetch(url);
+      const resolveJson = await resolve.json();
+      printToDOM(resolveJson);
+      localStorage.setItem("products", JSON.stringify(resolveJson)); //stringify: Convierte un OBJ a JSON
+   } catch (error) {
+      console.warn(error);
+   }
 };
 
-//getProducts( urlFakeStore );
+getProducts( urlFakeStore );
 
-function printToDOM( products ){
-    let unorderList = "";
-    for ( const product of products) {
-        unorderList += `<li class="col-6 col-md-4">${product.title}</li>`
-    }
+function printToDOM(products) {
+   let unorderList = "";
+   for (const product of products) {
+      unorderList += `<li class="col-6 col-md-4">${product.title}</li>`;
+   }
 
-    const productsList = document.getElementById("products");
-    productsList.innerHTML = unorderList;
+   const productsList = document.getElementById("products");
+   productsList.innerHTML = unorderList;
 }
 
 /*

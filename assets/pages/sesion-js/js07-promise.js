@@ -22,14 +22,12 @@ sintaxis:
 
 // const pinkyPromise = new Promise( ()=>{}   );
 // const pinkyPromise = new Promise( ( fncCallBackResolve, fncCallBackReject )=>{}   );
-const pinkyPromise = new Promise( ( fncCallBackResolve, fncCallBackReject )=>{
-    const menorEdad = false;
+const pinkyPromise = new Promise((fncCallBackResolve, fncCallBackReject) => {
+   const menorEdad = false;
 
-    if( menorEdad )
-        fncCallBackResolve("Hay que estar siempre juntos");
-    else
-        fncCallBackReject( { code: 404, message : "Ni te topo" } );
-} );
+   if (menorEdad) fncCallBackResolve("Hay que estar siempre juntos");
+   else fncCallBackReject({ code: 404, message: "Ni te topo" });
+});
 
 // Consumir las promesas
 // Se usa los métodos then, catch y finally*
@@ -48,12 +46,11 @@ console.log("01-Antes de consumir la promesa");
         */
 
 pinkyPromise
-    .then( ( response )=> console.log(`Promesa Resuelta: ${response}`) )
-    .catch( ( error )=> console.log(`Promesa Rechazada: ${error.message}`) ) 
-    .finally( ()=> console.log("Se ha terminado de resolver la promesa")  ); 
-                
-console.log("03-Después de consumir la promesa");
+   .then((response) => console.log(`Promesa Resuelta: ${response}`))
+   .catch((error) => console.log(`Promesa Rechazada: ${error.message}`))
+   .finally(() => console.log("Se ha terminado de resolver la promesa"));
 
+console.log("03-Después de consumir la promesa");
 
 // Haciendo una promesa con parámetros
 
@@ -61,29 +58,30 @@ console.log("03-Después de consumir la promesa");
  * Saludo especial para las personas que comience con A, retardo de 5 segundos.
  * Saludo especial para las personas que comiencen con L
  * El saludo se genera después de 5 segundos.
- * @param {string} name 
+ * @param {string} name
  */
-const gretting = ( name ) => {
-      // const myPromise = new Promise( ()=>{}  );
-      const myPromise = new Promise( (resolve, reject) => {
-        const firstChar = name.charAt(0).toLowerCase();
-        if( firstChar === 'a'  )
-            //resolve({code: 200 , message: `Soy ${name} ¡hola a todos!` });
-            setTimeout( ()=> resolve({code: 200 , message: `Soy ${name} ¡hola a todos!` }),5000 );
-        else if ( firstChar === 'l'  )
-            resolve({code: 201 , message: `Soy ${name} 
+const gretting = (name) => {
+   // const myPromise = new Promise( ()=>{}  );
+   const myPromise = new Promise((resolve, reject) => {
+      const firstChar = name.charAt(0).toLowerCase();
+      if (firstChar === "a")
+         //resolve({code: 200 , message: `Soy ${name} ¡hola a todos!` });
+         setTimeout(() => resolve({ code: 200, message: `Soy ${name} ¡hola a todos!` }), 3000);
+      else if (firstChar === "l")
+         resolve({
+            code: 201,
+            message: `Soy ${name} 
                        Saludos a toda la banda de la ch30 
                        taka taka taka taka taka 
                        viene viene viene viene 
                        takta taka taka taka
-            ` });
-        else 
-            reject({code:404, message: `No estoy disponible para ${name}`});        
+            `,
+         });
+      else reject({ code: 404, message: `No estoy disponible para ${name}` });
+   }); // fin de Promise
 
-      }  ); // fin de Promise
-
-      return myPromise;
-}
+   return myPromise;
+};
 /*
 gretting("Ana")
     .then( response => console.log(response.code, response.message) )
@@ -105,25 +103,24 @@ gretting("Eduardo")
 
 */
 
-async function grettingCh30 ( name ) {
-    console.log("----Saludos a la bandita de la Ch30----- ");
-    const result = await gretting( name);
-    console.log( result );
-    console.log("--- Fin del saludo ----");
+async function grettingCh30(name) {
+   console.log("----Saludos a la bandita de la Ch30----- ");
+   const result = await gretting(name);
+   console.log(result);
+   console.log("--- Fin del saludo ----");
 }
 // gretting = async () => {}
 
-
-const grettingAll = async () =>{
-    try{
-        await grettingCh30( "Anneth" );
-        await grettingCh30( "Mau" );
-        await grettingCh30( "Leonardo" );
-    }
-    catch( error ){
-        console.warn("Se rechazó una promesa");
-        console.table( error )
-    }
-
-}
+const grettingAll = async () => {
+   try {
+      const promises = Promise.allSettled([grettingCh30("Anneth"), grettingCh30("Mau"), grettingCh30("Leonardo")])
+      // await grettingCh30("Anneth");
+      // await grettingCh30("Mau");
+      // await grettingCh30("Leonardo");
+      // console.table(promises);
+   } catch (error) {
+      console.warn("Se rechazó una promesa");
+      console.table(error);
+   }
+};
 grettingAll();
