@@ -18,5 +18,32 @@ class Products{
     }
 }
 
+// usando la palabra reservada extends pordemos heredar de otra clase
+class TapiocaProducts extends Products {
+    // para encapsular un elemento, le agregamos al nombre el símbolo
+    // de # o _
+    #atributoEncapsulado
+    
+    constructor( id, name, image, ingredients ){
+        // invocando al método constructor
+        // super invoca a los atributos y métodos de la clase superior
+        super(id, name, image); // invoca al contructor de Products
+        this.ingredients = Array.isArray( ingredients)? ingredients: [] ;
+        this.#atributoEncapsulado = "Solamente tengo acceso dentro de la clase";
+    }
+
+    // metodos setters y getters
+    getAtributoEncapsulado(){
+        return this.#atributoEncapsulado;
+    }
+
+    setAtributoEncapsulado( nuevoValor ){
+        this.#atributoEncapsulado = nuevoValor;
+    }
+}
+
+
+
+
 // exportar las clases, funciones, variables, etc.
-export { Products };
+export { Products, TapiocaProducts }; 

@@ -3,20 +3,19 @@
     "serie": 233423,
     "nombre": "Vainilla Mojo dojo casa house",
     "precio": 67.80,
-    "ingredientes": ["vainilla", "tapioca","café"]
+    "ingredients": ["vainilla", "tapioca","café"]
 },
 {
     "serie": 233434,
     "nombre": "Fresa Barbie dream house",
-    "precio": 67.80,
-    "ingredientes": ["vainilla", "tapioca","café"]
+    "precio": 67.80
 },
 
 {
     "serie": 2334567,
     "nombre": "Explosión de chocolate ",
     "precio": 67.80,
-    "ingredientes": ["vainilla", "tapioca","café"],
+    "ingredients": ["chocolate", "tapioca","café"],
     "image": "https://simple-nourished-living.com/wp-content/uploads/2014/05/crockpot-chocolate-tapioca-pudding.jpg"
 },
 
@@ -24,18 +23,18 @@
     "serie": 233446,
     "nombre": "oppenheimer",
     "precio": 67.80,
-    "ingredientes": ["vainilla", "tapioca","café"]
+    "ingredients": ["chile", "tapioca","café"]
 },
 {
     "serie": 2337691,
     "nombre": "Maracuyá fresher bubble tea",
     "precio": 67.80,
-    "ingredientes": ["vainilla", "tapioca","café"]
+    "ingredients": ["maracuyá", "tapioca","café"]
 },
 {
     "serie": 2334334,
     "nombre": "Letón refresher bubble tea",
     "precio": 67.80,
-    "ingredientes": ["vainilla", "tapioca","café"]
+    "ingredients": ["té verde", "tapioca","café"]
 }
 ]

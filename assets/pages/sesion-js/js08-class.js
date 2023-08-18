@@ -1,4 +1,4 @@
-import { Products } from "./js08-product-class.js";
+import { Products, TapiocaProducts } from "./js08-product-class.js";
 
 console.log("Sesión Js08- class");
 
@@ -86,7 +86,8 @@ async function createProductsOfFakeStore(){
 
 async function createProductsOfTapioca(){
     const fakeProducts = await getProducts("/assets/json/tapioca.json");    
-    return fakeProducts.map( ({serie, nombre, image })=> new Products( serie , nombre , image || null));
+    return fakeProducts.map( ({serie, nombre, image, ingredients }) => 
+                    new TapiocaProducts( serie , nombre , image, ingredients) );
 }
 
 
@@ -99,6 +100,15 @@ function createCardsOfProducts( products){
           <h5 class="card-title">${ product.name}</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary">${ product.id}</h6>
           <p class="card-text">Some title content pon uwu xd :V</p>
+          ${
+             product instanceof TapiocaProducts ? 
+              `<ol>
+               ${product.ingredients.map( ingredient => `<li> ${ingredient}</li>` ).join("")}  
+               </ol>
+               <h4> atributo: ${product.getAtributoEncapsulado() } </h4>
+               `
+               : ` <p>ingredientes no disponibles</p>`
+          }
           <a href="#" class="card-link">Card link</a>
         </div>
       </div>       
