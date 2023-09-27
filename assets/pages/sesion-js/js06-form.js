@@ -1,32 +1,66 @@
 console.log("JS06 - Formulario");
 
 // Obtenemos la referencia del formulario
-// const registerForm = document.getElementById("registerForm");
 const registerForm = document.forms["registerForm"];
 
 // registerForm.addEventListener( "click", fncCallback  );
-registerForm.addEventListener( "submit", ( event )=>{
+registerForm.addEventListener( "submit", async ( event )=>{
     event.preventDefault(); // omitir las acciones por default
-    // console.log( event ); datos del click
-    /*const email = registerForm.elements["email"];
-    const birthdate = registerForm.elements["birthdate"];
-    console.log(email.value , birthdate.value);*/
+
     const user = {
-        fullname: registerForm.elements["fullname"].value, // string
         email : registerForm.elements["email"].value, // string
         password : registerForm.elements["password"].value, // string
-        birthdate : registerForm.elements["birthdate"].value, // string
     }
 
-    const age = calculateAge( user );
-
-    if( age.year < 18 ){
-      // alert (`Al rato regresas, aún tienes ${age.year} años`);
-      appendAlert(`Al rato regresas, aún tienes ${age.year} años`, 'warning')
-    }
-        
-
+    await getProducts();
+    //await postUser(user);
+    await postProduct()  
 }  );
+
+const postUser = async ( userData) =>{
+  const url= "http://localhost:8080/login";
+  
+  const responseJSON = await fetch( url , {
+      method: "POST", // POST, PUT, DELETE, GET
+      body: JSON.stringify( userData) , // datos del usuario
+      headers: { "Content-Type" : "application/json" },
+  });
+  const response = await responseJSON.json(); 
+  console.log(response);  
+
+}
+
+const getProducts = async ( ) =>{
+  const url= "http://localhost:8080/api/v1/products";
+  
+  const responseJSON = await fetch( url );
+  const response = await responseJSON.json(); 
+  console.log(response);  
+
+}
+
+const postProduct = async ( productData) =>{
+  const url= "http://localhost:8080/api/v1/products";
+  
+ productData = {
+  firstName: "Antonio",
+  lastName: "M",
+  email: "antonio3@gmail.com",
+  password: "123"
+}
+
+  const responseJSON = await fetch( url , {
+      method: "POST", 
+      body: JSON.stringify( productData) , 
+      headers: { "Content-Type" : "application/json" },
+  });
+  const response = await responseJSON.json(); 
+  console.log(response);  
+
+}
+
+
+
 
 const calculateAge = ( {birthdate : birthdateStr }  )=>{
     console.log(birthdateStr); // string  1996-11-30 
@@ -62,10 +96,3 @@ const appendAlert = (message, type) => {
 
   alertPlaceholder.append(wrapper)
 }
-/* 
-const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    appendAlert('Nice, you triggered this alert message!', 'success')
-  })
-} */
